@@ -4,15 +4,22 @@
  *
  */
 
+// *** BW notes version ***
+
 #ifndef MBEDTLS_CONFIG_H
 #define MBEDTLS_CONFIG_H
 
 #if !defined( NO_CRYPTO_ACCELERATION )
 /* SiliconLabs plugins with CRYPTO acceleration support. */
-#define MBEDTLS_SLCL_PLUGINS
-#define MBEDTLS_MPI_MODULAR_DIVISION_ALT
+#define MBEDTLS_SLCL_PLUGINS  //***TODO: remove -- deprecated
+#define MBEDTLS_MPI_MODULAR_DIVISION_ALT  //*** TODO: remove -- deprecated
 #define MBEDTLS_AES_ALT
 #define MBEDTLS_CRYPTO_DEVICE_PREEMPTION
+
+//*** TODO: add hardware TRNG acceleration support macros
+//*** TODO: add some form of authentication support
+//*** TODO: add some form of ECDHE key exchange support
+
 #endif
 
 /* mbed TLS modules */
@@ -35,10 +42,13 @@
    3 = Improve speed at the expense of RAM
    4 = Optimize speed at the expense of RAM
 */
+//*** TODO: ECP_WINDOW_SIZE doesn't do anything with AES, and the original example didn't use anything but AES, so why is this here?
 #define MBEDTLS_ECP_WINDOW_SIZE        3
 #define MBEDTLS_ECP_FIXED_POINT_OPTIM  0
 
 /* Significant speed benefit at the expense of some ROM */
+
+//*** TODO: Why is this optimization commented out, especially if using ECP?
 //#define MBEDTLS_ECP_NIST_OPTIM
 
 /*

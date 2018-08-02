@@ -61,7 +61,7 @@ void encrypt_data()
 #endif
 
 
-
+// TODO: rename "mode" to be more descriptive, like "encrypt"
 struct crypto_result handle_encryption(uint8_t *data, uint8_t *key, bool mode)
 {
   
